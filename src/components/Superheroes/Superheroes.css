@@ -1,0 +1,61 @@
+.superheroesImg{ /* Padre */
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%
+}
+
+.img{ /* Hijo */ 
+    -webkit-clip-path: polygon(100% 0, 100% 96%, 94% 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 96%, 94% 100%, 0 100%, 0 0);    
+    width: 168px;
+    margin: 11px;
+    text-align: center;
+    border: 2px solid white;
+    background-color: #151515;
+}
+
+.img:hover{
+    background-color: #E62429;
+    color: white;
+}
+
+.imgAlone{
+    display: block; 
+}
+
+.superheroeName{ 
+    color: white;
+    border-top: 4px solid #E62429;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    padding: 10px;
+    font-family: roboto;
+    z-index: -10;
+} 
+
+.filterOrderSection{ /* Padre */
+    display: flex;
+    width: 100%;
+}
+
+.searchInput{
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px;
+    font-size: 25px;
+    font-family: roboto;
+    color: grey;
+    justify-content: center;
+    align-items: center
+}
+
+
+
+

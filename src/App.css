@@ -24,16 +24,16 @@
   margin-left: 25px;
   margin-right: 25px;
   font-family: Roboto;
-  color: white;
+  color: #999ba4;
   background: transparent;
-  border: transparent;
+  border: 2px solid transparent;
   padding: 12px;
   font-size: 15px;
 }
 
 .navButtons > button:hover{
-  background: #ff0000;
-  color: black;
+  border-bottom: 2px solid #E62429;
+  color: white;
 }
 
 .carrusel{

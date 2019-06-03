@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Superheroes.css'
 
-class Superheroes extends Component{
-    constructor(props){
+class Superheroes extends Component {
+    constructor(props) {
         super(props)
         this.state = {
             superheroes: []
@@ -18,18 +18,26 @@ class Superheroes extends Component{
                 })
                 console.log(this.state.superheroes)
             });
-}   
+    }
 
-    render(){
+    render() {
         const img = this.state.superheroes.map(item => {
-            return <div className="superheroesCard"> 
-                <img className="superheroesImg" src={item.thumbnail.path + '/portrait_fantastic.' + item.thumbnail.extension} alt="" key={item.id} /> 
-                <div>{item.name}</div>
-                </div>
-})
-    
-        return(
-            <div>{img}</div>
+            return <div className="img"> <img  className="imgAlone" src={item.thumbnail.path + '/portrait_fantastic.' + item.thumbnail.extension} alt="" key={item.id} />
+                <div className="superheroeName">{item.name}</div>
+            </div>
+        });
+
+        return (
+            <div className="charactersDiv"> 
+            <section className="filterOrderSection">
+                <input className="searchInput" placeholder="SEARCH"></input>
+                <select className="selectOrder"></select>
+            </section>
+
+            <section className="superheroesImg">
+                {img}
+            </section>
+            </div>
         )
     }
 }

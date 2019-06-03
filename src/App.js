@@ -22,9 +22,7 @@ class App extends Component {
 
         <img src={button} alt="logo" className="characters" />
 
-        <section>
-          <input className="inputSearch"></input>
-        </section>
+        
 
         <Superheroes />
       </div>
