@@ -62,4 +62,9 @@ body{
   margin-left: -10%
 }
 
+.inputSearch{
+  border: transparent;
+  border-bottom: 2px solid black;
+}
+
 
