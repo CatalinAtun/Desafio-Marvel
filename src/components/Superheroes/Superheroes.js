@@ -8,15 +8,13 @@ const Superheroes = props => (
         {props.superheroes.map((item) => {
             return (
                 <div className="charactersDiv"    > 
-                <Link to={{ 
-                    pathname: `/info/${item.id}`,
-                    state: { info: item.name}
-                    }}> 
+                
                     <div className="img">
                         <img className="imgAlone" src={item.thumbnail.path + '/portrait_fantastic.' + item.thumbnail.extension} alt="" key={item.id} />
                         <div className="superheroeName">{item.name}</div>
                     </div>
-                    </Link>
+                    
+                    
                 </div> 
             )
         })}
