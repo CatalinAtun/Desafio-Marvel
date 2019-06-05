@@ -2,4 +2,7 @@
 
 ### Prototipos 
 
-![Página principal - Personajes](PagCharacters.jpg)
+
+#### Página principal - Personajes
+![Imgur](https://i.imgur.com/Fr3Y6u4.jpg)
+
