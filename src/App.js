@@ -29,14 +29,14 @@ class App extends Component {
     console.log(this.state.superheroes)
   }*/
 
-  componentDidMount() {
-    fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=07d6647c6490ca8893a4ef6d7a666c9b&limit=100`)
+  componentDidMount = () => {
+    fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=07d6647c6490ca8893a4ef6d7a666c9b&limit=100`)
         .then(res => res.json())
         .then(json => {
             this.setState({
                 superheroes: json.data.results
             })
-            console.log('fetch 1: ' + this.state.superheroes[0].thumbnail.path + '/portrait_fantastic.' + this.state.superheroes[0].thumbnail.extension)
+            //console.log('fetch 1: ' + this.state.superheroes[0].thumbnail.path + '/portrait_fantastic.' + this.state.superheroes[0].thumbnail.extension)
         });
 }
 
