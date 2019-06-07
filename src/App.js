@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import marvel from './images/marvel.png';
+import Navbar from './components/Navbar'
 import carrusel from './images/carrusel.jpg';
 import button from './images/button.png';
 
 import Superheroes from './components/Superheroes/Superheroes'
 //import SuperheroesInfo from './components/SuperheroesInfo/SuperheroesInfo'
 
-const API_KEY = '139853e75bfe04a8b492968608147a1a';
+const API_KEY = 'ee3ec3d304aa87d05d8a92e45b526f4d';
+const HASH = "974c38ee92752852e61d83c41972e012"
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class App extends Component {
   }*/
 
   componentDidMount = () => {
-    fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=07d6647c6490ca8893a4ef6d7a666c9b&limit=100`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=${HASH}&limit=100`)
         .then(res => res.json())
         .then(json => {
             this.setState({
@@ -44,11 +45,7 @@ class App extends Component {
 
     return (
       <div>
-        <section>
-          <header className="principalHeader"><img src={marvel} alt="logo" className="logo" key="" /></header>
-          <div className="navButtons"><button>CHARACTERS</button><button>LET'S PLAY</button></div>
-        </section>
-
+        <Navbar />
         <section>
           <img src={carrusel} alt="logo" className="carrusel" />
           <div className="navUnderCarrusel"></div>
