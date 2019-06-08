@@ -10,33 +10,36 @@ class Game extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            superheroeRandom: []
+            superheroeRandom1: false,
+            superheroeRandom2: false
         }
     }
 
     componentDidMount = () => {
+        const randomNumber1 = Math.floor(Math.random()*100)
+        const randomNumber2 = Math.floor(Math.random()*100)
         fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=${HASH}&limit=100`)
             .then(res => res.json())
             .then(json => {
                 this.setState({
-                    ...this.state,
-                    superheroeRandom: json.data.results
+                    superheroeRandom1: json.data.results[randomNumber1],
+                    superheroeRandom2: json.data.results[randomNumber2]
                 })
-                //console.log('fetch 2: ' + this.state.superheroeRandom[0].name)
             });
     }
 
     render() {
-        
-        const mapSuperheroes = this.state.superheroeRandom.map((item) => {
-            return (item.name)
-        })
-
-        const randomNumber = Math.floor(Math.random()*mapSuperheroes.length)
         return (
             <div>
                 <Navbar />
-                {randomNumber}
+                {this.state.superheroeRandom1 !== false && this.state.superheroeRandom2 !== false ? 
+                <div> 
+                <img src={this.state.superheroeRandom1.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom1.thumbnail.extension} alt=""/> 
+                <p>{this.state.superheroeRandom1.name}</p>
+                <img src={this.state.superheroeRandom2.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom2.thumbnail.extension} alt=""/> 
+                <p>{this.state.superheroeRandom2.name}</p>
+                </div> : <p>Loading...</p> }
+                
                 </div>
         )
     }
