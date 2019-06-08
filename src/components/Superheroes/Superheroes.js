@@ -8,7 +8,7 @@ const Superheroes = props => (
     <section className="superheroesImg">
         {props.superheroes.map((item) => {
             return (
-                <div className="charactersDiv"    >
+                <div className="charactersDiv">
                     <Link to={{
                         pathname: `/info/${item.id}`,
                         state: { info: item.id }
@@ -18,7 +18,6 @@ const Superheroes = props => (
                             <div className="superheroeName">{item.name}</div>
                         </div>
                     </Link>
-
                 </div>
             )
         })}

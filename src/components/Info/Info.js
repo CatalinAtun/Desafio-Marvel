@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar'
+import Navbar from '../Navbar/Navbar'
 import carruselInformation from '../../images/carruselInformation.jpg'
 import './Info.css'
 
@@ -79,6 +79,7 @@ class Info extends Component {
             displayDescription: true,
             displayEvent: false
         })
+
     }
 
     // Al apretarlo aparecen los comics en pantalla
@@ -156,19 +157,19 @@ class Info extends Component {
         const portadaComics = this.state.comicPerCharacter.map((item) => {
             return (<div className="coverImage">
                 <img className="cover" src={item.data.results[0].thumbnail.path + "/portrait_uncanny." + item.data.results[0].thumbnail.extension} alt="" />
-                {/* {item.data.results[0].title} */}
+                <p>{item.data.results[0].title}</p> 
             </div>)
         })
         const portadaSeries = this.state.seriePerCharacter.map((item) => {
-            return (<div>
+            return (<div className="coverImage">
                 <img className="cover" src={item.data.results[0].thumbnail.path + "/portrait_uncanny." + item.data.results[0].thumbnail.extension} alt="" />
-                {item.data.results[0].title}
+                <p>{item.data.results[0].title}</p> 
             </div>)
         })
         const portadaEvents = this.state.eventPerCharacter.map((item) => {
-            return (<div>
+            return (<div className="coverImage">
                 <img className="cover" src={item.data.results[0].thumbnail.path + "/portrait_uncanny." + item.data.results[0].thumbnail.extension} alt="" />
-                {item.data.results[0].title}
+                <p>{item.data.results[0].title}</p> 
             </div>)
         })
 
@@ -180,12 +181,12 @@ class Info extends Component {
                     <h1 className="nameInPhoto">{this.state.showInfo.name}</h1>
                     <div className="secondNavUnderCarrusel"></div>
                 </section>
-
+                <button className="buttonBack">BACK</button>
                 <section className="imgSection">
                     <div className="imageDiv">
                         {this.state.showInfo !== false ? <div>
                             <img className="superheroeImage" src={this.state.showInfo.thumbnail.path + '/portrait_uncanny.' + this.state.showInfo.thumbnail.extension} alt="" key={this.state.showInfo.id} />
-                            {/* <p>{this.state.showInfo.name}</p> */} </div> : <p>Loading...</p>}
+                            <p>{this.state.showInfo.name}</p> <p>{this.state.showInfo.comics.items.returned}</p>  </div> : <p>Loading...</p>}
                     </div>
 
                     <div className="interactiveButtonsAndPhotos">
@@ -196,8 +197,7 @@ class Info extends Component {
                             <button className="btn-events" onClick={this.showEvents}>EVENTS</button>
                         </div>
                         
-                        {this.state.displayDescription === true ? <div><p>{this.state.showInfo.description}</p></div>
-                            : console.log('descripcion en falso')}
+                        {this.state.displayDescription === true ? <div><p>{this.state.showInfo.description}</p></div> : console.log('descripcion en falso')}
                         {this.state.displayComic === true ? <div className="testComics">{portadaComics}</div> : console.log('comics en falso')}
                         {this.state.displaySerie === true ? <div className="testComics">{portadaSeries}</div> : console.log('series en falso')}
                         {this.state.displayEvent === true ? <div className="testComics">{portadaEvents}</div> : console.log('events en falso')}
