@@ -13,8 +13,8 @@ class Game extends Component {
         this.state = {
             superheroeRandom1: false,
             superheroeRandom2: false,
-            hp1: Math.floor(Math.random() * (100 - 1) + 1),
-            hp2: Math.floor(Math.random() * (100 - 1) + 1),
+            /* hp1: Math.floor(Math.random() * (100 - 1) + 1),
+            hp2: Math.floor(Math.random() * (100 - 1) + 1), */
             numberOfRounds: ""
         }
     }
@@ -22,17 +22,6 @@ class Game extends Component {
 
 
     componentDidMount = () => {
-        
-    }
-
-    rounds = (e) => {
-        this.setState({
-            ...this.state,
-            numberOfRounds: e.target.value
-        })
-    }
-
-    game = () => {
         const randomNumber1 = Math.floor(Math.random() * 100)
         const randomNumber2 = Math.floor(Math.random() * 100)
         
@@ -44,25 +33,39 @@ class Game extends Component {
                     superheroeRandom2: json.data.results[randomNumber2],
                 })
             });
+    }
 
-        let countHp1 = 0;
-        let countHp2 = 0;
+    rounds = (e) => {
+        this.setState({
+            ...this.state,
+            numberOfRounds: e.target.value
+        })
+    }
+
+    game = () => {
+        let cara = 0;
+        let sello = 0;
 
             for (let i = 0; i < this.state.numberOfRounds; i++){
-                countHp1 = Math.floor(Math.random() * ([i] - 15) + 1)
-                countHp1 = Math.floor(Math.random() * ([i] - 10) + 1)
-                console.log(countHp1)
-                console.log(countHp2)
+                let rv = Math.floor(Math.random() * 100) 
+                console.log(rv)
+                if (rv % 2 === 0){
+                    cara ++
+                    console.log('cara '+ cara)
+                } else {
+                    sello ++
+                    console.log('sello '+ sello)
+                }
             }
 
         console.log(this.state.numberOfRounds)
         this.setState({
             ...this.state,
-            hp1: countHp1,
-            hp2: countHp2
+            hp1: cara,
+            hp2: sello
         }) 
 
-        if( this.state.hp1 < this.state.hp2){
+        if(this.state.hp1 < this.state.hp2){
             alert("gana 2")
         } else if (this.state.hp1 > this.state.hp2){
             alert("gana 1")
@@ -87,12 +90,10 @@ class Game extends Component {
                         <div className="fighterCard">
                             <img className="fighter" src={this.state.superheroeRandom1.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom1.thumbnail.extension} alt="" />
                             <p>{this.state.superheroeRandom1.name}</p>
-                            {this.state.hp1 !== 0 ? <p>Power = {this.state.hp1}</p> : <p>0</p>}
                         </div>
                         <div className="fighterCard">
                             <img className="fighter" src={this.state.superheroeRandom2.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom2.thumbnail.extension} alt="" />
                             <p>{this.state.superheroeRandom2.name}</p>
-                            {this.state.hp2 !== 0 ? <p>Power = {this.state.hp2}</p> : <p>0</p>}
                         </div>
                     </div> : <p>Loading...</p>}
 
