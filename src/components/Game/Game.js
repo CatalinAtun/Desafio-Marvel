@@ -13,16 +13,14 @@ class Game extends Component {
         this.state = {
             superheroeRandom1: false,
             superheroeRandom2: false,
-            /* hp1: Math.floor(Math.random() * (100 - 1) + 1),
-            hp2: Math.floor(Math.random() * (100 - 1) + 1), */
             numberOfRounds: ""
         }
     }
 
+    // Llamada a API. Devuelve dos superhéroes aleatorios los cuales son guardados en dos estados
     componentDidMount = () => {
         const randomNumber1 = Math.floor(Math.random() * 100)
         const randomNumber2 = Math.floor(Math.random() * 100)
-
         fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=${HASH}&limit=100`)
             .then(res => res.json())
             .then(json => {
@@ -33,17 +31,18 @@ class Game extends Component {
             });
     }
 
+    // Guarda el valor ingresado en un estado. parseInt se asegura de que solo se escriban números en el input. Si se escribe una letra arrojará NaN y se deberá refrescar la página para quitarlo
     rounds = (e) => {
         this.setState({
             ...this.state,
-            numberOfRounds: e.target.value
+            numberOfRounds: parseInt(e.target.value)
         })
     }
-
+    
+    // Itera el número de veces que se ingresa en el input. Por cara iteración evalúa si el número es par o no. Si es par cara gana 1 y si es impar sello gana 1. Al finalizar las iteraciones gana la variable con valor más alto
     game = () => {
-        let cara;
-        let sello;
-
+        let cara = 0;
+        let sello = 0;
         for (let i = 0; i < this.state.numberOfRounds; i++) {
             let rv = Math.floor(Math.random() * 100)
             console.log(rv)
@@ -56,19 +55,14 @@ class Game extends Component {
             }
         }
 
-        console.log(this.state.numberOfRounds)
-        this.setState({
-            ...this.state,
-            hp1: cara,
-            hp2: sello
-        })
+        console.log(this.state.numberOfRounds + '1 '+cara + '2 '+sello)
 
-        if (this.state.hp1 < this.state.hp2) {
-            alert("gana 2")
-        } else if (this.state.hp1 > this.state.hp2) {
-            alert("gana 1")
-        } else if (this.state.hp1 === this.state.hp2) {
-            alert("empate")
+        if (cara < sello) {
+            alert("Gana 2")
+        } if (cara > sello) {
+            alert("Gana 1")
+        } if (cara === sello){
+            alert("Empate")
         }
     }
 
@@ -77,7 +71,7 @@ class Game extends Component {
             <div>
                 <section>
                     <Navbar />
-                    <img className="carruselFight" src={carruselfight} />
+                    <img alt="" className="carruselFight" src={carruselfight} />
                     <div className="navUnderCarrusel"></div>
                 </section>
                 <div className="roundsDiv">
@@ -87,11 +81,11 @@ class Game extends Component {
                 {this.state.superheroeRandom1 !== false && this.state.superheroeRandom2 !== false ?
                     <div className="superheroesFight">
                         <div className="fighterCard">
-                            <img className="fighter" src={this.state.superheroeRandom1.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom1.thumbnail.extension} alt="" />
+                            <img alt="" className="fighter" src={this.state.superheroeRandom1.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom1.thumbnail.extension} alt="" />
                             <p>{this.state.superheroeRandom1.name}</p>
                         </div>
                         <div className="fighterCard">
-                            <img className="fighter" src={this.state.superheroeRandom2.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom2.thumbnail.extension} alt="" />
+                            <img alt="" className="fighter" src={this.state.superheroeRandom2.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom2.thumbnail.extension} alt="" />
                             <p>{this.state.superheroeRandom2.name}</p>
                         </div>
                     </div> : <p>Loading...</p>}
