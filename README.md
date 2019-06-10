@@ -1,6 +1,6 @@
 ## Desafío NNODES - Marvel
 
-####Deploy: https://marvel-desafio-3bae8.web.app/
+#### Deploy: https://marvel-desafio-3bae8.web.app/
 
 ### Prototipos 
 
@@ -10,4 +10,7 @@
 
 #### Página secundaria - Información de superhéroe
 ![Imgur](https://i.imgur.com/IkZ2Or3.jpg)
+
+#### Página tercearia - Juego
+[Imgur](https://i.imgur.com/AZzp1Mm.jpg)
 

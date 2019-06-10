@@ -39,23 +39,23 @@ class Game extends Component {
         })
     }
     
-    // Itera el número de veces que se ingresa en el input. Por cara iteración evalúa si el número es par o no. Si es par cara gana 1 y si es impar sello gana 1. Al finalizar las iteraciones gana la variable con valor más alto
+    // Itera el número de veces que se ingresa en el input. Por cara iteración se evalúa si un número aleatorio es par o impar. Si es par cara gana 1 y si es impar sello gana 1. Al finalizar las iteraciones gana la variable con valor más alto
     game = () => {
         let cara = 0;
         let sello = 0;
         for (let i = 0; i < this.state.numberOfRounds; i++) {
-            let rv = Math.floor(Math.random() * 100)
-            console.log(rv)
-            if (rv % 2 === 0) {
+            let random = Math.floor(Math.random() * 100)
+            //console.log(random)
+            if (random % 2 === 0) {
                 cara++
-                console.log('cara ' + cara)
+                //console.log('cara ' + cara)
             } else {
                 sello++
-                console.log('sello ' + sello)
+                //console.log('sello ' + sello)
             }
         }
 
-        console.log(this.state.numberOfRounds + '1 '+cara + '2 '+sello)
+        //console.log(this.state.numberOfRounds + '1 '+cara + '2 '+sello)
 
         if (cara < sello) {
             alert("Gana 2")
