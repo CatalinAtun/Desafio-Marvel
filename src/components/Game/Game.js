@@ -98,7 +98,7 @@ class Game extends Component {
                         </div>
                     </div> : <p>Loading...</p>}
 
-                <footer className="footer-info"></footer>
+                    <footer className="footer-info"><p>Data provided by Marvel. © 2019 MARVEL</p></footer>
             </div>
         )
     }
