@@ -191,7 +191,11 @@ class Info extends Component {
                     <div className="imageDiv">
                         {this.state.showInfo !== false ? <div>
                             <img className="superheroeImage" src={this.state.showInfo.thumbnail.path + '/portrait_uncanny.' + this.state.showInfo.thumbnail.extension} alt="" key={this.state.showInfo.id} />
-                            <p>{this.state.showInfo.name}</p> <p>{this.state.showInfo.comics.items.returned}</p>  </div> : <p>Loading...</p>}
+                            <p className="nameP">NAME: {this.state.showInfo.name}</p> 
+                            <p className="comicsP">COMICS: {this.state.showInfo.comics.available}</p>
+                            <p className="seriesP">SERIES: {this.state.showInfo.series.available}</p>
+                            <p className="eventsP">EVENTS: {this.state.showInfo.events.available}</p> </div> : <p>Loading...</p>}
+                            
                     </div>
 
                     <div className="interactiveButtonsAndPhotos">
@@ -202,10 +206,10 @@ class Info extends Component {
                             <button className="btn-events" onClick={this.showEvents}>EVENTS</button>
                         </div>
                         
-                        {this.state.displayDescription === true ? <div>{this.state.showInfo.description !== "" ? <p>{this.state.showInfo.description}</p> : <p>Ooops, this character doesn't have a description</p>}</div> : console.log('descripcion en falso')}
-                        {this.state.displayComic === true ? <div className="testComics">{portadaComics}</div> : console.log('comics en falso')}
-                        {this.state.displaySerie === true ? <div className="testComics">{portadaSeries}</div> : console.log('series en falso')}
-                        {this.state.displayEvent === true ? <div className="testComics">{portadaEvents}</div> : console.log('events en falso')}
+                        {this.state.displayDescription === true ? <div>{this.state.showInfo.description !== "" ? <p>{this.state.showInfo.description}</p> : <p>Ooops, this character doesn't have a description</p>}</div> : <p></p>}
+                        {this.state.displayComic === true ? <div className="testComics">{portadaComics}</div> : <p></p>}
+                        {this.state.displaySerie === true ? <div className="testComics">{portadaSeries}</div> : <p></p>}
+                        {this.state.displayEvent === true ? <div className="testComics">{portadaEvents}</div> : <p></p>}
                     </div>
                 </section>
                 <footer className="footer-info"><p>Data provided by Marvel. © 2019 MARVEL</p></footer>

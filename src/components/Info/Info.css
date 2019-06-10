@@ -49,20 +49,35 @@
     margin-top: -3%
 }
 
+.nameP, .comicsP, .seriesP, .eventsP{
+    font-weight: bold;
+    font-family: roboto;
+    text-align: start;
+    margin-left: 55px
+}
+
+.nameP{
+    margin-top: 30px
+}
+
+.comicsP, .seriesP, .eventsP{
+    margin-top: -15px
+}
+
 .btn-description{
     width: 210px;
-    -webkit-clip-path: polygon(7% 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 41%);
-    clip-path: polygon(7% 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 41%);
+    /* -webkit-clip-path: polygon(7% 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 41%);
+    clip-path: polygon(7% 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 41%); */
 }
 
 .btn-comics, .btn-series, .btn-events {
     width: 165px;
 }
 
-.btn-events{
+/*.btn-events{
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 60%, 91% 100%, 0 100%, 0 31%);
-    clip-path: polygon(0 0, 100% 0, 100% 60%, 91% 100%, 0 100%, 0 31%);
-}
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 91% 100%, 0 100%, 0 31%); 
+}*/
 
 .interactiveButtons > button{
     background-color: white;
