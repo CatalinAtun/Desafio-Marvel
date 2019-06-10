@@ -5,7 +5,13 @@ import carrusel from './images/carrusel.jpg';
 import button from './images/button.png';
 
 import Superheroes from './components/Superheroes/Superheroes';
-//import SuperheroesInfo from './components/SuperheroesInfo/SuperheroesInfo'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSearch)
+
 
 const API_KEY = 'ee3ec3d304aa87d05d8a92e45b526f4d';
 const HASH = "974c38ee92752852e61d83c41972e012"
@@ -38,12 +44,12 @@ class App extends Component {
           <img src={carrusel} alt="logo" className="carrusel" />
           <div className="navUnderCarrusel"></div>
         </section>
+        <img src={button} alt="logo" className="characters" />
         <div className="search"> 
-          <input placeholder="SEARCH" className="inputSearch"></input>
-          <select>A-Z</select>
+        <FontAwesomeIcon className="iconSearch" icon="search" /> <input placeholder= "SEARCH" className="inputSearch"></input>
         </div>
 
-        <img src={button} alt="logo" className="characters" />
+        
 
         <Superheroes superheroes={this.state.superheroes} />
         <footer className="footer-info"><p>Data provided by Marvel. © 2019 MARVEL</p></footer>

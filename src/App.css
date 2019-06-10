@@ -13,14 +13,24 @@
 }
 
 .search{
-  text-align: start
+  text-align: start;
+  margin-top: 2%
+}
+
+.iconSearch{
+  margin-left: 90px
 }
 
 .inputSearch{
   text-align: start;
-  width: 300px;
+  width: 500px;
+  height: 40px;
+  font-size: 25px;
   border: transparent;
   border-bottom: 2px solid black;
+  font-family: roboto;
+  color: black;
+  margin-left: 1%
 }
 
 body{
