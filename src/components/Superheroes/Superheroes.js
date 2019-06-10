@@ -25,26 +25,3 @@ const Superheroes = props => (
 )
 
 export default Superheroes;
-
-/*componentDidMount() {
-    fetch("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=139853e75bfe04a8b492968608147a1a&hash=07d6647c6490ca8893a4ef6d7a666c9b&limit=100")
-        .then(res => res.json())
-        .then(json => {
-            this.setState({
-                superheroes: json.data.results
-            })
-            console.log(this.state.superheroes)
-        });
-}
-
-return (
-
-
-        <section className="superheroesImg">
-            {img}
-        </section>
-    </div>
-)
-    }
-)
-*/

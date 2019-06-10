@@ -38,7 +38,7 @@ class Game extends Component {
             numberOfRounds: parseInt(e.target.value)
         })
     }
-    
+
     // Itera el número de veces que se ingresa en el input. Por cara iteración se evalúa si un número aleatorio es par o impar. Si es par cara gana 1 y si es impar sello gana 1. Al finalizar las iteraciones gana la variable con valor más alto
     game = () => {
         let cara = 0;
@@ -61,7 +61,7 @@ class Game extends Component {
             alert("Gana 2")
         } if (cara > sello) {
             alert("Gana 1")
-        } if (cara === sello){
+        } if (cara === sello) {
             alert("Empate")
         }
     }
@@ -75,18 +75,26 @@ class Game extends Component {
                     <div className="navUnderCarrusel"></div>
                 </section>
                 <div className="roundsDiv">
+                    <h1 className="h1Instruccions">INSTRUCCIONS</h1>
+                    <p>1. Type a number on ‘’Rounds’’ box <br></br>
+                    2. Click on FIGHT!<br></br>
+                    3. The system will choose random numbers <br></br>
+                    (the number you introduce are the quantity of random numbers)<br></br>
+                    4. If the random name is pair, Player 1 win 1 point, if the random name<br></br>
+                    is odd, Player 2 win 1 point<br></br>
+                    5. The player with more points win!</p> 
                     <input type="text" name="rounds" placeholder="Rounds" onChange={this.rounds} value={this.state.numberOfRounds}></input>
-                    <button onClick={this.game}>FIGHT</button>
+                    <button onClick={this.game}>FIGHT!</button>
                 </div>
                 {this.state.superheroeRandom1 !== false && this.state.superheroeRandom2 !== false ?
                     <div className="superheroesFight">
                         <div className="fighterCard">
                             <img alt="" className="fighter" src={this.state.superheroeRandom1.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom1.thumbnail.extension} alt="" />
-                            <p>{this.state.superheroeRandom1.name}</p>
+                            <p className="pPlayer1">{this.state.superheroeRandom1.name}</p>
                         </div>
                         <div className="fighterCard">
                             <img alt="" className="fighter" src={this.state.superheroeRandom2.thumbnail.path + "/portrait_uncanny." + this.state.superheroeRandom2.thumbnail.extension} alt="" />
-                            <p>{this.state.superheroeRandom2.name}</p>
+                            <p className="pPlayer2">{this.state.superheroeRandom2.name}</p>
                         </div>
                     </div> : <p>Loading...</p>}
 
@@ -97,5 +105,3 @@ class Game extends Component {
 }
 
 export default Game;
-
-/* <button onClick={() => this.randomSuperheroe()}>RANDOM</button>*/

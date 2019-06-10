@@ -218,7 +218,3 @@ class Info extends Component {
     }
 }
 export default Info;
-
-// {this.state.displayEvent === true ? <div className="testComics">{ {portadaEvents} !== "" ? {portadaEvents} : <p>Ooops, no hay eventos</p>}</div> : console.log('events en falso')}
-
-// {this.state.displayEvent === true ? <div className="testComics">{portadaEvents}</div> : console.log('events en falso')}

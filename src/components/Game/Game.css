@@ -5,12 +5,26 @@
     width: 70%;
 }
 
+.h1Instruccions{
+    font-family: roboto;
+}
+
+.roundsDiv > p {
+    font-family: roboto;
+    text-align: start;
+    margin-left: 30%
+}
+
 .fighterCard{
     margin-top: 4%
 }
 
 .fighter, .roundsDiv{
     width: 70%;
+}
+
+.pPlayer1, .pPlayer2{
+    font-size: 20px
 }
 
 .roundsDiv{
