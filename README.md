@@ -12,5 +12,5 @@
 ![Imgur](https://i.imgur.com/IkZ2Or3.jpg)
 
 #### Página tercearia - Juego
-[Imgur](https://i.imgur.com/AZzp1Mm.jpg)
+![Imgur](https://i.imgur.com/AZzp1Mm.jpg)
 
