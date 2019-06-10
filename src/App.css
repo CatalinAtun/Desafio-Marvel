@@ -12,6 +12,17 @@
   box-shadow: 0px 6px 25px 2px rgba(0,0,0,0.75);
 }
 
+.search{
+  text-align: start
+}
+
+.inputSearch{
+  text-align: start;
+  width: 300px;
+  border: transparent;
+  border-bottom: 2px solid black;
+}
+
 body{
   text-align: center;
 }
@@ -24,9 +35,6 @@ body{
   margin-left: -10%
 }
 
-.inputSearch{
-  border: transparent;
-  border-bottom: 2px solid black;
-}
+
 
 

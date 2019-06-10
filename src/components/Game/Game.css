@@ -3,15 +3,18 @@
     flex-direction: row;
     justify-content: center;
     width: 70%;
-    background-color: blue
 }
 
 .fighterCard{
-    margin-top: 10%
+    margin-top: 4%
 }
 
-.fighter{
+.fighter, .roundsDiv{
     width: 70%;
+}
+
+.roundsDiv{
+    margin-top: 3%;
 }
 
 .carruselFight{

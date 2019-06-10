@@ -19,12 +19,10 @@ class Game extends Component {
         }
     }
 
-
-
     componentDidMount = () => {
         const randomNumber1 = Math.floor(Math.random() * 100)
         const randomNumber2 = Math.floor(Math.random() * 100)
-        
+
         fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=${HASH}&limit=100`)
             .then(res => res.json())
             .then(json => {
@@ -43,33 +41,33 @@ class Game extends Component {
     }
 
     game = () => {
-        let cara = 0;
-        let sello = 0;
+        let cara;
+        let sello;
 
-            for (let i = 0; i < this.state.numberOfRounds; i++){
-                let rv = Math.floor(Math.random() * 100) 
-                console.log(rv)
-                if (rv % 2 === 0){
-                    cara ++
-                    console.log('cara '+ cara)
-                } else {
-                    sello ++
-                    console.log('sello '+ sello)
-                }
+        for (let i = 0; i < this.state.numberOfRounds; i++) {
+            let rv = Math.floor(Math.random() * 100)
+            console.log(rv)
+            if (rv % 2 === 0) {
+                cara++
+                console.log('cara ' + cara)
+            } else {
+                sello++
+                console.log('sello ' + sello)
             }
+        }
 
         console.log(this.state.numberOfRounds)
         this.setState({
             ...this.state,
             hp1: cara,
             hp2: sello
-        }) 
+        })
 
-        if(this.state.hp1 < this.state.hp2){
+        if (this.state.hp1 < this.state.hp2) {
             alert("gana 2")
-        } else if (this.state.hp1 > this.state.hp2){
+        } else if (this.state.hp1 > this.state.hp2) {
             alert("gana 1")
-        } else if (this.state.hp1 === this.state.hp2){
+        } else if (this.state.hp1 === this.state.hp2) {
             alert("empate")
         }
     }
@@ -82,9 +80,10 @@ class Game extends Component {
                     <img className="carruselFight" src={carruselfight} />
                     <div className="navUnderCarrusel"></div>
                 </section>
-                <input type="text" name="rounds" placeholder="Rounds" onChange={this.rounds} value={this.state.numberOfRounds}></input>
-                <button onClick={this.game}>FIGHT</button>
-
+                <div className="roundsDiv">
+                    <input type="text" name="rounds" placeholder="Rounds" onChange={this.rounds} value={this.state.numberOfRounds}></input>
+                    <button onClick={this.game}>FIGHT</button>
+                </div>
                 {this.state.superheroeRandom1 !== false && this.state.superheroeRandom2 !== false ?
                     <div className="superheroesFight">
                         <div className="fighterCard">

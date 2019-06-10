@@ -10,7 +10,9 @@ class Navbar extends Component {
             <section>
                 <header className="principalHeader"><img src={marvel} alt="logo" className="logo" key="" /></header>
                 <div className="navButtons">
-                    <button>CHARACTERS</button>
+                    <button><Link to={{
+                        pathname: `/`
+                    }}> CHARACTERS </Link></button>
                     <button><Link to={{
                         pathname: `/game/`
                     }}> LET'S PLAY </Link></button>

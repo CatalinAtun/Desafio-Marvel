@@ -3,6 +3,8 @@ import Navbar from '../Navbar/Navbar'
 import carruselInformation from '../../images/carruselInformation.jpg'
 import './Info.css'
 
+import { Link } from 'react-router-dom'
+
 //const API_KEY = '139853e75bfe04a8b492968608147a1a';
 
 const API_KEY = 'ee3ec3d304aa87d05d8a92e45b526f4d';
@@ -35,7 +37,7 @@ class Info extends Component {
             displayEvent: true
         })
         this.state.eventId.map((item) => {
-            return (fetch(`https://gateway.marvel.com/v1/public/events/${item}?ts=1&apikey=${API_KEY}&hash=${HASH}`)
+            return (fetch(`https://cors-anywhere.herokuapp.com/https://gateway.marvel.com/v1/public/events/${item}?ts=1&apikey=${API_KEY}&hash=${HASH}`)
                 .then(res => res.json())
                 .then(json => {
                     let concatEvents = this.state.eventPerCharacter;
@@ -58,7 +60,7 @@ class Info extends Component {
         })
         this.state.serieId.map((item) => {
             //console.log(item)
-            return (fetch(`https://gateway.marvel.com/v1/public/series/${item}?ts=1&apikey=${API_KEY}&hash=${HASH}`)
+            return (fetch(`https://cors-anywhere.herokuapp.com/https://gateway.marvel.com/v1/public/series/${item}?ts=1&apikey=${API_KEY}&hash=${HASH}`)
                 .then(res => res.json())
                 .then(json => {
                     let concatSeries = this.state.seriePerCharacter;
@@ -92,7 +94,7 @@ class Info extends Component {
             displayEvent: false
         })
         this.state.comicId.map((item) => {
-            return (fetch(`https://gateway.marvel.com/v1/public/comics/${item}?ts=1&apikey=${API_KEY}&hash=${HASH}`)
+            return (fetch(`https://cors-anywhere.herokuapp.com/https://gateway.marvel.com/v1/public/comics/${item}?ts=1&apikey=${API_KEY}&hash=${HASH}`)
                 .then(res => res.json())
                 .then(json => {
                     let concatComics = this.state.comicPerCharacter;
@@ -107,7 +109,7 @@ class Info extends Component {
 
     componentDidMount = () => {
         const id = this.props.location.state.info;
-        fetch(`http://gateway.marvel.com/v1/public/characters/${id}?&ts=1&apikey=${API_KEY}&hash=${HASH}`)
+        fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters/${id}?&ts=1&apikey=${API_KEY}&hash=${HASH}`)
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -181,7 +183,10 @@ class Info extends Component {
                     <h1 className="nameInPhoto">{this.state.showInfo.name}</h1>
                     <div className="secondNavUnderCarrusel"></div>
                 </section>
-                <button className="buttonBack">BACK</button>
+                <button className="buttonBack">
+                <Link to={{
+                        pathname: `/`
+                    }}> BACK </Link></button>
                 <section className="imgSection">
                     <div className="imageDiv">
                         {this.state.showInfo !== false ? <div>
@@ -197,7 +202,7 @@ class Info extends Component {
                             <button className="btn-events" onClick={this.showEvents}>EVENTS</button>
                         </div>
                         
-                        {this.state.displayDescription === true ? <div><p>{this.state.showInfo.description}</p></div> : console.log('descripcion en falso')}
+                        {this.state.displayDescription === true ? <div>{this.state.showInfo.description !== "" ? <p>{this.state.showInfo.description}</p> : <p>Ooops, this character doesn't have a description</p>}</div> : console.log('descripcion en falso')}
                         {this.state.displayComic === true ? <div className="testComics">{portadaComics}</div> : console.log('comics en falso')}
                         {this.state.displaySerie === true ? <div className="testComics">{portadaSeries}</div> : console.log('series en falso')}
                         {this.state.displayEvent === true ? <div className="testComics">{portadaEvents}</div> : console.log('events en falso')}
@@ -209,3 +214,7 @@ class Info extends Component {
     }
 }
 export default Info;
+
+// {this.state.displayEvent === true ? <div className="testComics">{ {portadaEvents} !== "" ? {portadaEvents} : <p>Ooops, no hay eventos</p>}</div> : console.log('events en falso')}
+
+// {this.state.displayEvent === true ? <div className="testComics">{portadaEvents}</div> : console.log('events en falso')}

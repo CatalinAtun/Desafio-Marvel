@@ -20,14 +20,14 @@ class App extends Component {
 
   componentDidMount = () => {
     fetch(`https://cors-anywhere.herokuapp.com/http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${API_KEY}&hash=${HASH}&limit=100`)
-        .then(res => res.json())
-        .then(json => {
-            this.setState({
-                superheroes: json.data.results
-            })
-            
-        });       
-}
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          superheroes: json.data.results
+        })
+
+      });
+  }
 
   render() {
 
@@ -38,10 +38,15 @@ class App extends Component {
           <img src={carrusel} alt="logo" className="carrusel" />
           <div className="navUnderCarrusel"></div>
         </section>
+        <div className="search"> 
+          <input placeholder="SEARCH" className="inputSearch"></input>
+          <select>A-Z</select>
+        </div>
 
         <img src={button} alt="logo" className="characters" />
 
-        <Superheroes superheroes={this.state.superheroes}/>
+        <Superheroes superheroes={this.state.superheroes} />
+        <footer className="footer-info"><p>Data provided by Marvel. © 2019 MARVEL</p></footer>
       </div>
     )
   }
